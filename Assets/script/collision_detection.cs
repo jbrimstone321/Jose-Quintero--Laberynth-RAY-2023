@@ -9,11 +9,13 @@ public class collision_detection : MonoBehaviour
 
     [SerializeField]
     Material tagged;
-
+    
     bool wTriggered = false;
 
     float wTriggeredTime = 0.5f;
-        
+
+
+    // Reset of the world walls.
     private void Update()
     {
          if (wTriggered == true)
@@ -27,6 +29,8 @@ public class collision_detection : MonoBehaviour
             }
         }
     }
+
+    // Walls turning red when collided with.
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Player")
@@ -34,6 +38,8 @@ public class collision_detection : MonoBehaviour
             gameObject.GetComponent<MeshRenderer>().material = tagged;
             wTriggered = true; 
         }
+
+      
     }
 
 }
